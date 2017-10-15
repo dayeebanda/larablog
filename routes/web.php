@@ -75,12 +75,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/deshboar', 'HomeController@index');
 
 //Route::get('/logout', 'HomeController@logout');
-//here use this code for logout
+//here use this code for logout 
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
-
-// category work here
-Route::get('/category/add','CategoryController@createCatagory');
-//save by form so than here use post request
-Route::post('/category/save','CategoryController@storeCategory');
-Route::get('/category/manage','CategoryController@manageCategory');
-Route::get('/category/edit/{id}','CategoryController@editCategory');
