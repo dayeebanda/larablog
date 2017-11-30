@@ -26,6 +26,39 @@
             </ul>
             <!-- /.nav-second-level -->
         </li>
+<!-- ===== here is use menu for manufacturers============ -->
+
+<li>
+    <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>Manufacturer Info<span class="fa arrow"></span></a>
+    <ul class="nav nav-second-level">
+        <li>
+            <a href="{{url('manufacturer/add')}}">Manufacturer add</a>
+        </li>
+        <li>
+            <a href="{{ url('manufacturer/manage')}}">Manufacturer Manage</a>
+        </li>
+    </ul>
+    <!-- /.nav-second-level -->
+</li>
+
+<!-- ===== here is use menu for products============ -->
+
+<li>
+    <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>Product Info<span class="fa arrow"></span></a>
+    <ul class="nav nav-second-level">
+        <li>
+            <a href="{{url('product/add')}}">Product add</a>
+        </li>
+        <li>
+            <a href="{{ url('product/manage')}}">Product Manage</a>
+        </li>
+    </ul>
+    <!-- /.nav-second-level -->
+</li>
+
+
+
+
         <li>
             <a href="tables.html"><i class="fa fa-table fa-fw"></i> Tables</a>
         </li>

@@ -76,7 +76,9 @@
 
     <!-- jQuery -->
     <script src="{{asset('admin/vendor/jquery/jquery.min.js')}}"></script>
-
+    <!-- =======Use for tinymce ===== -->
+    <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+    <script>tinymce.init({ selector:'textarea' });</script>
     <!-- Bootstrap Core JavaScript -->
     <script src="{{asset('admin/vendor/bootstrap/js/bootstrap.min.js')}}"></script>
 
