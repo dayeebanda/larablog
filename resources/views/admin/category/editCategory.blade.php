@@ -1,79 +1,76 @@
 @extends('admin.master')
 @section('container')
 
+
 <div class="well">
-  <h3 class="text-center text-success"> {{Session::get('message')}}</h3>
-    {!! Form::open(['url' => '/category/update', 'class' => 'form-horizontal','name'=>'editCategoryForm']) !!}
+<h3 class="text-center text-success"> {{Session::get('message')}}</h3>
+{!!Form::open(['url'=>'category/update','method'=>'POST','class'=>'form-horizontal','name'=>'editCategoryForm'])!!}
+<fieldset>
 
-    <fieldset>
-
-        <legend>Add Category</legend>
-
-        <!-- category -->
-        <div class="form-group">
-            {!! Form::label('text', 'Category Name:', ['class' => 'col-lg-2 control-label']) !!}
-            <div class="col-lg-10">
-            {!! Form::text('category', $categoryById = '', ['class' => 'form-control', 'placeholder' => 'Category Name']) !!}
-            </div>
-        </div>
+<legend>Edit Category</legend>
 
 
-        <!-- Text Area -->
-        <div class="form-group">
-            {!! Form::label('textarea', 'Category Description', ['class' => 'col-lg-2 control-label']) !!}
-            <div class="col-lg-10">
-                {!! Form::textarea('category_description', $categoryById = '', ['class' => 'form-control', 'rows' => 3,'placeholder' => 'Category Description']) !!}
-                <span class="help-block">A longer block of help text that breaks onto a new line and may extend beyond one line.</span>
-            </div>
-        </div>
+<div class="form-group">
+  <label for="text" class="col-sm-2 control-label">Category Name</label>
+    <div class="col-lg-10">
+      <input type="text" value="{{$categoryById->category}}" class="form-control" name="category">
+      <input type="hidden" value="{{$categoryById->id}}" class="form-control" name="id">
+      <span class="text-danger"> {{ $errors->has('category') ? $errors->first('category'):''}}</span>
+    </div>
+</div>
 
-        <!-- Radio Buttons -->
-        <div class="form-group">
-            {!! Form::label('radios', 'Publication Status', ['class' => 'col-lg-2 control-label']) !!}
-            <div class="col-lg-10">
-                <div class="col-lg-2">
-                    {!! Form::label('radio', 'Yes') !!}
-                    <!--{!! Form::radio('publication_status', true, ['id' => 'radio1']) !!}-->
-                    {!!Form::radio('publication_status', 1, true) !!}
-            </div>
-                <div class="col-lg-2">
+<div class="form-group">
+  <label for="textarea" class="col-sm-2 control-label"> Category Description</label>
+      <div class="col-lg-10">
+        <textarea type="textarea" rows="3" class="form-control" name="category_description">
+          {{ $categoryById->category_description }}
+        </textarea>
+        <span class="text-danger"> {{ $errors->has('category_description') ? $errors->first('category_description'):''}}</span>
+        <span class="help-block">A longer block of help text that breaks onto a new line and may extend beyond one line.</span>-
+      </div>
+</div>
 
-                    {!! Form::label('radio', 'No.') !!}
-                    {!! Form::radio('publication_status',0, false) !!}
-                </div>
-            </div>
-        </div>
+<div class="form-group">
+  <label for="radio" class="col-sm-2 control-label" >Publicatin Status</label>
+          <div class="col-lg-10">
+              <div class="col-lg-2">
+                  <input type="radio"  name="publication_status"  value="1">
+                  <label for="radio" class="" >Yes</label>
+                  <input type="radio" name="publication_status" value="0">
+                  <label for="radio" class="" >No</label>
+              </div>
+          </div>
+</div>
 
-        <!-- Select With One Default -->
-        <div class="form-group">
-            {!! Form::label('select', 'Publicatin Size', ['class' => 'col-lg-2 control-label'] )  !!}
-            <div class="col-lg-10">
-                {!!  Form::select('publication_size', ['S' => 'Small', 'L' => 'Large', 'XL' => 'Extra Large', '2XL' => '2X Large'],  'S', ['class' => 'form-control' ]) !!}
-            </div>
-        </div>
+<div class="form-group">
+  <label for="option" class="col-sm-2 control-label" >Publication Size</label>
+ <div class="col-lg-10">
+  <select class="form-control" name="publication_size">
+    <option>Publication Size</option>
+    <option value="S">Small</option>
+    <option value="L">Large</option>
+    <option value="XL">Extra Large</option>
+    <option value="2XL">2XLLarge</option>
+  </select>
+</div>
+</div>
 
-        <!-- Select Multiple -->
-        <!-- <div class="form-group">
-            {!! Form::label('multipleselect[]', 'publication Status', ['class' => 'col-lg-2 control-label'] )  !!}
-            <div class="col-lg-10">
-                {!!  Form::select('multipleselect[]', ['honda' => 'Honda', 'toyota' => 'Toyota', 'subaru' => 'Subaru', 'ford' => 'Ford', 'nissan' => 'Nissan'], $selected = null, ['class' => 'form-control', 'multiple' => 'multiple']) !!}
-            </div>
-        </div> -->
 
-        <!-- Submit Button -->
-        <div class="form-group">
-            <div class="col-lg-10 col-lg-offset-2">
-                {!! Form::submit('Update', ['class' => 'btn btn-lg btn-info pull-right'] ) !!}
-            </div>
-        </div>
+<div class="form-group">
+    <div class="col-lg-10 col-lg-offset-2">
+      <button type="submit" name="btn" class="btn btn-lg btn-info pull-right">Update</button>
+    </div>
+</div>
 
-    </fieldset>
+{!!Form::close()!!}
 
-    {!! Form::close()  !!}
 
 </div>
-<script type="text/javascript">
-document.forms['editCategoryForm'].elements['publication_status'].value={{$categoryById->publication_status}}
-</script>
+</div>
+</div>
+<!-- <script>
+  document.forms['editCategoryForm'].elements['publicationStatus'].value={{$categoryById->publicationStatus}}
 
+
+</script> -->
 @endsection

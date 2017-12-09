@@ -10,10 +10,27 @@
             </span>
             </div>
             <!-- /input-group -->
+            <!-- ===== here is use menu for user============ -->
+            <li>
+                <a href="{{url('/deshboar')}}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>User Info<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="{{url('user/add')}}">User add</a>
+                    </li>
+                    <li>
+                        <a href="{{ url('user/manage')}}">User Manage</a>
+                    </li>
+                </ul>
+                <!-- /.nav-second-level -->
+            </li>
+
+            <!-- ===== here is use menu for User============ -->
+
         </li>
-        <li>
-            <a href="{{url('/deshboar')}}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
-        </li>
+
         <li>
             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>Category Info<span class="fa arrow"></span></a>
             <ul class="nav nav-second-level">

@@ -136,7 +136,36 @@ class CategoryController extends Controller
         //
     }
 
+    public function updateCategory(Request $request)
+    {
+        //print by Array dd().
+        //dd($request->all());
 
+        $this->validate($request,[
+            'category'=>'required',
+            'category_description'=>'required',
+            'publication_status' =>'required',
+            'publication_size'=>'required',
+        ]);
+
+        $category = Category::find($request->id);
+        $category->category = $request->category;
+        $category->category_description = $request->category_description;
+        $category->publication_status = $request->publication_status;
+        $category->publication_size = $request->publication_size;
+        $category->save();
+        return redirect('/category/manage/')->with('message', 'category info update');
+
+    }
+
+    public function deleteCategory($id){
+      $category =Category::find($id);
+      $category->delete();
+      return redirect('/category/manage/')->with('message', 'category info delete');
+
+
+
+    }
 
     /**
      * Remove the specified resource from storage.
@@ -148,4 +177,7 @@ class CategoryController extends Controller
     {
         //
     }
+
+
+
 }

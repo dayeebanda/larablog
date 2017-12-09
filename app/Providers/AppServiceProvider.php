@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use View;
+use App\Category;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -14,6 +16,13 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
+
+        //View::share('name','Habib');
+        View::composer('FrontEnd.includes.menu',function($view){
+          $publishCategories= Category::where('publication_status',1)->get();
+          $view->with('publishCategories', $publishCategories);
+
+        });
     }
 
     /**

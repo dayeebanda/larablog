@@ -46,6 +46,9 @@
 Auth::routes();
 
 Route::get('/','WelcomeController@index');
+Route::get('/category-view/{id}','WelcomeController@category');
+Route::get('/product-details/{id}','WelcomeController@productDetails');
+
 
 Route::get('/electronics','WelcomeController@electronics');
 
@@ -103,6 +106,9 @@ Route::get('/manufacturer/delete/{id}','manufacturerController@deleteManufacture
 Route::get('/product/add','ProductController@createProduct');
 Route::post('/product/save','ProductController@storProduct');
 Route::get('/product/manage','ProductController@manageProduct');
+Route::get('/product/view/{id}','ProductController@viewProduct');
 Route::get('/product/edit/{id}','ProductController@editProduct');
 Route::post('/product/update','ProductController@updateProduct');
 Route::get('/product/delete/{id}','ProductController@deleteProduct');
+
+Route::get('/user/manage','UserController@manageUser');

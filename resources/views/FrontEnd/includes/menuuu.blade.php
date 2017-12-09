@@ -24,13 +24,15 @@
 										<a href="mens.html"><img src="{{asset('FrontEnd/images/woo1.jpg')}}" alt=" "/></a>
 									</div>
 									<div class="col-sm-3 multi-gd-img">
-
 										<ul class="multi-column-dropdown">
-											@foreach ($publishCategories as $publishCategory)
-											<li><a href="{{url('/category-view/'.$publishCategory->id)}}">{{ $publishCategory->category }}</a></li>
-											@endforeach
+											<li><a href="{{url('/men')}}">Clothing</a></li>
+											<li><a href="{{url('/men')}}">Wallets</a></li>
+											<li><a href="{{url('/men')}}">Footwear</a></li>
+											<li><a href="{{url('/men')}}">Watches</a></li>
+											<li><a href="{{url('/men')}}">Accessories</a></li>
+											<li><a href="{{url('/men')}}">Bags</a></li>
+											<li><a href="{{url('/men')}}">Caps & Hats</a></li>
 										</ul>
-
 									</div>
 									<div class="col-sm-3 multi-gd-img">
 										<ul class="multi-column-dropdown">

@@ -2,6 +2,9 @@
 
 
 @section('container')
+<hr />
+<h3 class="text-center text-success"> {{Session::get('message')}}</h3>
+
 
 <table class="table table-striped table-inverse table-bordered table-hover">
   <thead>
@@ -26,7 +29,7 @@
       <td><a href="{{ url('/category/edit/'.$category->id)}}" class="btn btn-success">
           <span class="glyphicon glyphicon-edit"></span>
       </a>
-      <a href="" class="btn btn-danger">
+      <a href="{{ url('/category/delete/'.$category->id)}}" onclick="return confirm('are you sure  delete this category');"class="btn btn-danger">
           <span class="glyphicon glyphicon-trash"></span>
       </a>
     </td>
